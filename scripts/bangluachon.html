@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Để tôi đỗ đại học · Bảng lựa chọn</title>
+    <style>
+        /* ============================================================
+               Bảng lựa chọn · Dành riêng cho Vương Xuân Phượng
+               Cùng phong cách với thanh trạng thái: Nền vàng giấy Tuyên + Mực đỏ thẫm + Viền mạ vàng cũ
+               Phục cổ kiểu Trung · Phong cách giấy viết thư xưa
+               ============================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --paper: 45, 18%, 88%;
+            --paper-dark: 42, 15%, 78%;
+            --ink: 0, 0%, 8%;
+            --ink-light: 0, 0%, 35%;
+            --cinnabar: 350, 55%, 40%;
+            --cinnabar-light: 350, 45%, 55%;
+            --old-gold: 38, 45%, 50%;
+            --old-gold-light: 38, 35%, 65%;
+            --bg-dark: 0, 0%, 6%;
+        }
+
+        .options-module {
+            width: 100%;
+            max-width: 620px;
+            margin: 1.2rem auto;
+            background: hsla(var(--paper), 0.92);
+            background-image: url('【Thay thế bằng link ảnh nền của bảng lựa chọn tại đây】');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1.5px solid hsla(var(--cinnabar), 0.20);
+            border-radius: 4px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), inset 0 0 0 1px hsla(var(--old-gold), 0.06);
+            padding: 18px 18px 16px;
+            font-family: 'Noto Serif SC', 'Inter', 'PingFang SC', serif;
+            color: hsl(var(--ink));
+            position: relative;
+            min-height: 60px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hoa văn hồi văn bốn góc (giống với thanh trạng thái) */
+        .options-module .corner-border {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .options-module .corner-border::before,
+        .options-module .corner-border::after {
+            content: '';
+            position: absolute;
+            background: hsla(var(--cinnabar), 0.08);
+            border: 1px solid hsla(var(--cinnabar), 0.04);
+        }
+        .options-module .corner-tl {
+            top: 6px;
+            left: 6px;
+        }
+        .options-module .corner-tl::before {
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 3px;
+            border-bottom: none;
+            border-right: none;
+        }
+        .options-module .corner-tl::after {
+            bottom: 0;
+            right: 0;
+            width: 3px;
+            height: 8px;
+            border-top: none;
+            border-left: none;
+        }
+        .options-module .corner-tr {
+            top: 6px;
+            right: 6px;
+        }
+        .options-module .corner-tr::before {
+            top: 0;
+            right: 0;
+            width: 8px;
+            height: 3px;
+            border-bottom: none;
+            border-left: none;
+        }
+        .options-module .corner-tr::after {
+            bottom: 0;
+            left: 0;
+            width: 3px;
+            height: 8px;
+            border-top: none;
+            border-right: none;
+        }
+        .options-module .corner-bl {
+            bottom: 6px;
+            left: 6px;
+        }
+        .options-module .corner-bl::before {
+            bottom: 0;
+            left: 0;
+            width: 8px;
+            height: 3px;
+            border-top: none;
+            border-right: none;
+        }
+        .options-module .corner-bl::after {
+            top: 0;
+            right: 0;
+            width: 3px;
+            height: 8px;
+            border-bottom: none;
+            border-left: none;
+        }
+        .options-module .corner-br {
+            bottom: 6px;
+            right: 6px;
+        }
+        .options-module .corner-br::before {
+            bottom: 0;
+            right: 0;
+            width: 8px;
+            height: 3px;
+            border-top: none;
+            border-left: none;
+        }
+        .options-module .corner-br::after {
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 8px;
+            border-bottom: none;
+            border-right: none;
+        }
+
+        .options-module>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Đường trang trí phía trên */
+        .options-module .header-deco {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid hsla(var(--cinnabar), 0.06);
+            position: relative;
+        }
+        .options-module .header-deco .line-left,
+        .options-module .header-deco .line-right {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, hsla(var(--cinnabar), 0.10) 30%, hsla(var(--cinnabar), 0.10) 70%,
+                    transparent);
+        }
+        .options-module .header-deco .diamond {
+            width: 5px;
+            height: 5px;
+            background: hsla(var(--cinnabar), 0.08);
+            transform: rotate(45deg);
+            flex-shrink: 0;
+            border: 1px solid hsla(var(--cinnabar), 0.02);
+        }
+        .options-module .header-deco .dot {
+            width: 2.5px;
+            height: 2.5px;
+            border-radius: 50%;
+            background: hsla(var(--cinnabar), 0.04);
+            flex-shrink: 0;
+        }
+
+        .options-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid hsla(var(--cinnabar), 0.04);
+            margin-bottom: 14px;
+        }
+        .options-header .options-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: hsl(var(--cinnabar));
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .options-header .options-title .seal {
+            font-size: 8px;
+            background: hsla(var(--cinnabar), 0.03);
+            border: 1px solid hsla(var(--cinnabar), 0.04);
+            padding: 0 8px;
+            border-radius: 2px;
+            letter-spacing: 2px;
+            color: hsla(var(--cinnabar), 0.25);
+        }
+        .options-header .options-hint {
+            font-size: 9px;
+            color: hsl(var(--ink-light), 0.25);
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Lưới tùy chọn */
+        .options-inner {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            padding: 2px 0;
+        }
+
+        .opt-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 6px;
+            background: hsla(var(--paper-dark), 0.10);
+            border: 1px solid hsla(var(--cinnabar), 0.04);
+            border-radius: 2px;
+            color: hsl(var(--ink));
+            font-family: 'Noto Serif SC', 'Inter', 'PingFang SC', serif;
+            font-size: 11px;
+            font-weight: 400;
+            line-height: 1.4;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            gap: 3px;
+            position: relative;
+        }
+        .opt-btn .badge {
+            font-size: 9px;
+            font-weight: 400;
+            color: hsla(var(--cinnabar), 0.12);
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+        .opt-btn:hover {
+            background: hsla(var(--cinnabar), 0.03);
+            border-color: hsla(var(--cinnabar), 0.12);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+        }
+        .opt-btn:hover .badge {
+            color: hsla(var(--cinnabar), 0.25);
+        }
+        .opt-btn:active {
+            transform: scale(0.95) translateY(0);
+            transition-duration: 0.05s;
+        }
+        .opt-btn.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+            transform: none !important;
+        }
+
+        .options-empty {
+            color: hsl(var(--ink-light), 0.12);
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-align: center;
+            width: 100%;
+            padding: 12px 0;
+            grid-column: 1 / -1;
+        }
+
+        @media (max-width: 520px) {
+            .options-inner {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .options-module {
+                padding: 14px 12px 12px;
+                border-radius: 2px;
+            }
+            .options-header .options-title {
+                font-size: 11px;
+                letter-spacing: 2px;
+            }
+            .options-header .options-title .seal {
+                font-size: 7px;
+                padding: 0 6px;
+            }
+            .opt-btn {
+                font-size: 10px;
+                padding: 10px 4px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .options-inner {
+                grid-template-columns: 1fr;
+            }
+            .opt-btn {
+                flex-direction: row;
+                justify-content: flex-start;
+                padding: 8px 12px;
+                text-align: left;
+                gap: 8px;
+            }
+            .opt-btn .badge {
+                font-size: 8px;
+            }
+            .options-module {
+                padding: 10px 8px 10px;
+            }
+            .options-header .options-title {
+                font-size: 9px;
+                letter-spacing: 1px;
+            }
+        }
+
+        @media (min-width: 600px) {
+            .options-module {
+                padding: 22px 22px 18px;
+            }
+            .opt-btn {
+                font-size: 13px;
+                padding: 14px 8px;
+            }
+            .options-header .options-title {
+                font-size: 15px;
+            }
+            .options-header .options-hint {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="options-module" id="options-root">
+
+        <!-- Hoa văn hồi văn bốn góc -->
+        <div class="corner-border corner-tl"></div>
+        <div class="corner-border corner-tr"></div>
+        <div class="corner-border corner-bl"></div>
+        <div class="corner-border corner-br"></div>
+
+        <!-- Đường trang trí phía trên -->
+        <div class="header-deco">
+            <span class="line-left"></span>
+            <span class="diamond"></span>
+            <span class="dot"></span>
+            <span class="diamond"></span>
+            <span class="dot"></span>
+            <span class="diamond"></span>
+            <span class="line-right"></span>
+        </div>
+
+        <!-- Phần đầu (Header) -->
+        <div class="options-header">
+            <div class="options-title">
+                Chọn hành động của bạn
+                <span class="seal">Vương Xuân Phượng</span>
+            </div>
+            <div class="options-hint">Nhấp để kích hoạt</div>
+        </div>
+
+        <!-- Danh sách tùy chọn -->
+        <div class="options-inner" id="options-list"></div>
+    </div>
+
+    <!-- Container dữ liệu (Tương thích liên kết ngoài) -->
+    <div id="options-data" style="display:none;">$1</div>
+
+    <script>
+        (function() {
+            'use strict';
+
+            // ===== Tương thích liên kết ngoài: Đọc dữ liệu từ container bị ẩn =====
+            var dataContainer = document.getElementById('options-data');
+            var raw = dataContainer ? dataContainer.textContent.trim() : '';
+
+            var container = document.getElementById('options-list');
+            if (!container) return;
+
+            // ===== Gửi tùy chọn đến Tavern =====
+            function sendOption(text) {
+                if (!text) return;
+                if (typeof triggerSlash === 'function') {
+                    triggerSlash('/send ' + text + '|/trigger');
+                    return;
+                }
+                var textarea = document.querySelector('#send_textarea') ||
+                    (window.parent && window.parent.document.querySelector('#send_textarea'));
+                if (textarea) {
+                    textarea.value = text;
+                    textarea.dispatchEvent(new Event('input', { bubbles: true }));
+                    var sendBtn = document.querySelector('#send_button') || document.querySelector('#send_btn');
+                    if (sendBtn) {
+                        setTimeout(function() { sendBtn.click(); }, 80);
+                    }
+                }
+            }
+
+            // ===== Phân tích cú pháp: Dùng | để phân tách các tùy chọn =====
+            var items = raw ? raw.split('|').map(function(s) { return s.trim(); }).filter(function(s) { return s
+                    .length > 0; }) : [];
+
+            if (items.length === 0) {
+                container.innerHTML = '<div class="options-empty">✦ Chờ lựa chọn ✦</div>';
+                return;
+            }
+
+            // ===== Hiển thị (Render) =====
+            var html = '';
+            var badges = ['①', '②', '③', '④', '⑤', '⑥', '⑦', '⑧', '⑨', '⑩'];
+            items.forEach(function(opt, index) {
+                var safeText = opt
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;');
+                html += `
+                        <button class="opt-btn" data-opt="${safeText}">
+                            <span class="badge">${badges[index] || (index + 1)}</span>
+                            <span>${safeText}</span>
+                        </button>
+                    `;
+            });
+            container.innerHTML = html;
+
+            // ===== Ràng buộc sự kiện =====
+            container.addEventListener('click', function(e) {
+                var btn = e.target.closest('.opt-btn');
+                if (!btn || btn.classList.contains('disabled')) return;
+
+                var text = btn.getAttribute('data-opt');
+                if (text) {
+                    document.querySelectorAll('.opt-btn').forEach(function(b) { b.classList.add('disabled'); });
+                    sendOption(text);
+                    setTimeout(function() {
+                        document.querySelectorAll('.opt-btn').forEach(function(b) { b.classList.remove(
+                                'disabled'); });
+                    }, 5000);
+                }
+            });
+
+            // Phản hồi chạm
+            container.addEventListener('touchstart', function(e) {
+                var btn = e.target.closest('.opt-btn');
+                if (!btn) return;
+                btn.style.transition = 'none';
+                btn.style.transform = 'scale(0.95)';
+                setTimeout(function() {
+                    btn.style.transition = '';
+                    btn.style.transform = '';
+                }, 100);
+            }, { passive: true });
+
+            console.log('📜 Bảng lựa chọn của Vương Xuân Phượng đã tải (Phong cách giấy viết thư xưa)');
+        })();
+    </script>
+
+</body>
+</html>
