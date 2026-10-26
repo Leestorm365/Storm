@@ -1,0 +1,1081 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi tiết Khu Hẹn Hò - Diễn đàn Thê Duyệt</title>
+    <link rel="stylesheet" href="https://fontsapi.zeoseven.com/292/main/result.css" />
+  </head>
+
+  <body>
+    <style>
+      :root {
+        --dark-red: #c92a2a;
+        --blood-red: #e03131;
+        --light-red: #ff6b6b;
+        --dark-gray: #1a1a1a;
+        --gray: #2a2a2a;
+        --light-gray: #3a3a3a;
+        --text-main: #e0e0e0;
+        --text-dim: #999;
+        --text-dimmer: #666;
+        --gold: #ffd700;
+        --border: rgba(220, 20, 60, 0.2);
+        --hover-bg: rgba(220, 20, 60, 0.08);
+      }
+
+      [data-theme='light'] {
+        --dark-red: #c92a2a;
+        --blood-red: #e03131;
+        --light-red: #ff6b6b;
+        --dark-gray: #f5f5f5;
+        --gray: #ececec;
+        --light-gray: #e0e0e0;
+        --text-main: #2a2a2a;
+        --text-dim: #666;
+        --text-dimmer: #999;
+        --gold: #d97706;
+        --border: rgba(220, 20, 60, 0.15);
+        --hover-bg: rgba(220, 20, 60, 0.05);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          'Noto Sans SC',
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          sans-serif;
+        color: var(--text-main);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .post-container {
+        width: 100%;
+        max-width: 820px;
+        margin: 0 auto;
+        background: var(--dark-gray);
+        font-size: var(--base-font-size, 14px);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .post-container.font-medium {
+        --base-font-size: 16px;
+      }
+
+      .post-container.font-large {
+        --base-font-size: 18px;
+      }
+
+      .post-container.font-xlarge {
+        --base-font-size: 20px;
+      }
+
+      .post-header {
+        background: var(--blood-red);
+        padding: 10px 16px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .back-button {
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: #fff;
+        padding: 6px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.2s;
+        font-size: 0.85em;
+        font-weight: 500;
+        outline: none;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .back-button:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      .post-title-header {
+        font-size: 1em;
+        font-weight: 600;
+        color: #fff;
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .theme-toggle {
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: #fff;
+        padding: 6px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.2s;
+        font-size: 0.85em;
+        font-weight: 500;
+        outline: none;
+      }
+
+      .theme-toggle:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      .post-main {
+        background: var(--gray);
+        padding: 16px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .post-title-full {
+        font-size: 1.3em;
+        font-weight: 600;
+        color: var(--text-main);
+        margin-bottom: 12px;
+        line-height: 1.4;
+      }
+
+      .post-meta-info {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        color: var(--text-dim);
+        font-size: 0.85em;
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .post-author-name {
+        color: var(--gold);
+        font-weight: 600;
+      }
+
+      .hookup-requirements {
+        background: var(--light-gray);
+        padding: 16px;
+        border-radius: 8px;
+        margin-bottom: 16px;
+      }
+
+      .requirements-title {
+        font-size: 1.05em;
+        font-weight: 600;
+        color: var(--blood-red);
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .requirement-item {
+        display: flex;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .requirement-item:last-child {
+        border-bottom: none;
+      }
+
+      .requirement-label {
+        min-width: 80px;
+        color: var(--text-dim);
+        font-weight: 500;
+      }
+
+      .requirement-value {
+        color: var(--text-main);
+        flex: 1;
+      }
+
+      .requirement-value.highlight {
+        color: var(--light-red);
+        font-weight: 600;
+      }
+
+      .post-content-main {
+        color: var(--text-main);
+        font-size: 1em;
+        line-height: 1.8;
+        margin-bottom: 16px;
+      }
+
+      .post-content-main p {
+        margin-bottom: 12px;
+      }
+
+      .wife-info-card {
+        background: var(--light-gray);
+        padding: 16px;
+        border-radius: 8px;
+        margin-bottom: 16px;
+      }
+
+      .wife-info-title {
+        font-size: 1.05em;
+        font-weight: 600;
+        color: var(--blood-red);
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .wife-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .wife-stat-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .wife-stat-label {
+        color: var(--text-dim);
+        font-size: 0.9em;
+      }
+
+      .wife-stat-value {
+        color: var(--text-main);
+        font-weight: 600;
+      }
+
+      .post-images {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .post-image-wrapper {
+        position: relative;
+        width: 100%;
+        padding-bottom: 100%;
+        border-radius: 6px;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .post-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.2s;
+      }
+
+      .post-image-wrapper:hover .post-image {
+        transform: scale(1.05);
+      }
+
+      .post-image.nsfw-blur {
+        filter: blur(15px);
+      }
+
+      .post-image-wrapper:hover .nsfw-blur {
+        filter: blur(8px);
+      }
+
+      .nsfw-badge {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: var(--blood-red);
+        color: #fff;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.75em;
+        font-weight: 600;
+        pointer-events: none;
+      }
+
+      .post-stats-bar {
+        display: flex;
+        gap: 16px;
+        padding: 12px;
+        background: var(--light-gray);
+        border-radius: 6px;
+        font-size: 0.9em;
+        color: var(--text-dim);
+      }
+
+      .stat-item {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .reply-section {
+        background: var(--gray);
+        padding: 16px;
+        border-top: 1px solid var(--border);
+      }
+
+      .reply-section-title {
+        font-size: 1em;
+        font-weight: 600;
+        color: var(--blood-red);
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .reply-input-container {
+        background: var(--light-gray);
+        border-radius: 8px;
+        padding: 12px;
+      }
+
+      .reply-textarea {
+        width: 100%;
+        min-height: 120px;
+        background: var(--dark-gray);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 12px;
+        color: var(--text-main);
+        font-size: 0.95em;
+        font-family: inherit;
+        line-height: 1.6;
+        resize: vertical;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+
+      .reply-textarea:focus {
+        border-color: var(--blood-red);
+      }
+
+      .reply-textarea::placeholder {
+        color: var(--text-dimmer);
+      }
+
+      .reply-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 12px;
+      }
+
+      .reply-tips {
+        color: var(--text-dim);
+        font-size: 0.85em;
+      }
+
+      .reply-submit-btn {
+        background: var(--blood-red);
+        color: #fff;
+        border: none;
+        padding: 10px 24px;
+        border-radius: 6px;
+        font-size: 0.95em;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        outline: none;
+      }
+
+      .reply-submit-btn:hover {
+        background: var(--light-red);
+        transform: translateY(-1px);
+      }
+
+      .reply-submit-btn:active {
+        transform: translateY(0);
+      }
+
+      .reply-submit-btn:disabled {
+        background: var(--text-dimmer);
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .lightbox {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        overflow: hidden;
+      }
+
+      .lightbox.active {
+        display: flex;
+      }
+
+      .lightbox-image {
+        max-width: 70%;
+        max-height: 70%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 12px;
+        opacity: 0;
+        transform: scale(0.9);
+        transition:
+          opacity 0.3s ease,
+          transform 0.3s ease;
+        cursor: zoom-out;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      }
+
+      .lightbox-image.loaded {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .lightbox-loader {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .lightbox-loader.hidden {
+        display: none;
+      }
+
+      .lightbox-spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid rgba(255, 255, 255, 0.2);
+        border-top-color: var(--blood-red);
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+
+      .lightbox-loader-text {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.9em;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .post-container {
+          font-size: var(--base-font-size, 13px);
+        }
+
+        .post-container.font-medium {
+          --base-font-size: 15px;
+        }
+
+        .post-container.font-large {
+          --base-font-size: 17px;
+        }
+
+        .post-container.font-xlarge {
+          --base-font-size: 19px;
+        }
+
+        .post-images {
+          grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        }
+
+        .wife-stats {
+          grid-template-columns: 1fr;
+        }
+
+        .reply-actions {
+          flex-direction: column;
+          gap: 10px;
+          align-items: stretch;
+        }
+
+        .reply-tips {
+          text-align: center;
+        }
+      }
+
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: rgba(220, 20, 60, 0.3);
+        border-radius: 3px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(220, 20, 60, 0.5);
+      }
+
+      * {
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .loading {
+        text-align: center;
+        padding: 50px;
+        color: var(--text-dim);
+        font-size: 1.1em;
+      }
+    </style>
+
+    <div class="post-container" id="post-container">
+      <div class="loading">Tải giao diện thất bại, có thể do lỗi định dạng, vui lòng roll lại cuộc trò chuyện thử xem...</div>
+      <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-loader" id="lightbox-loader">
+          <div class="lightbox-spinner"></div>
+          <div class="lightbox-loader-text">Đang tải hình ảnh...</div>
+        </div>
+        <img class="lightbox-image" id="lightbox-image" src="" alt="" />
+      </div>
+    </div>
+
+    <script>
+      const chat_message = getChatMessages(getCurrentMessageId())[0];
+      const match = chat_message.message.match(/<hookup_data>([\s\S]*?)<\/hookup_data>/);
+      const hookupDataXML = match ? match[0] : '<hookup_data></hookup_data>';
+      const IMAGE_BASE_URL = 'https://img.emolsp.online/CG/wife_forum/';
+
+      function parseHookupDataXML(xmlText) {
+        console.log('========== Bắt đầu phân tích dữ liệu hẹn hò ==========');
+        console.log('Độ dài dữ liệu XML:', xmlText.length);
+
+        const data = {
+          title: '',
+          author: '',
+          time: '',
+          location: '',
+          appointmentTime: '',
+          playStyle: '',
+          requirements: '',
+          otherInfo: '',
+          views: '',
+          replies: '',
+          content: '',
+          wifeAge: '',
+          wifeHeight: '',
+          wifeWeight: '',
+          wifeBust: '',
+          images: [],
+        };
+
+        try {
+          const titleMatch = xmlText.match(/\[Tiêu đề\|([^\]]+)\]/);
+          if (titleMatch) data.title = titleMatch[1];
+
+          const authorMatch = xmlText.match(/\[Tác giả\|([^\]]+)\]/);
+          if (authorMatch) data.author = authorMatch[1];
+
+          const timeMatch = xmlText.match(/\[Thời gian\|([^\]]+)\]/);
+          if (timeMatch) data.time = timeMatch[1];
+
+          const locationMatch = xmlText.match(/\[Địa điểm\|([^\]]+)\]/);
+          if (locationMatch) data.location = locationMatch[1];
+
+          const appointmentTimeMatch = xmlText.match(/\[Thời gian hẹn\|([^\]]+)\]/);
+          if (appointmentTimeMatch) data.appointmentTime = appointmentTimeMatch[1];
+
+          const playStyleMatch = xmlText.match(/\[Sở thích cách chơi\|([^\]]+)\]/);
+          if (playStyleMatch) data.playStyle = playStyleMatch[1];
+
+          const requirementsMatch = xmlText.match(/\[Yêu cầu trai đơn\|([^\]]+)\]/);
+          if (requirementsMatch) data.requirements = requirementsMatch[1];
+
+          const otherInfoMatch = xmlText.match(/\[Giải thích khác\|([^\]]+)\]/);
+          if (otherInfoMatch) data.otherInfo = otherInfoMatch[1];
+
+          const viewsMatch = xmlText.match(/\[Lượt xem\|([^\]]+)\]/);
+          if (viewsMatch) data.views = viewsMatch[1];
+
+          const repliesMatch = xmlText.match(/\[Số trả lời\|([^\]]+)\]/);
+          if (repliesMatch) data.replies = repliesMatch[1];
+
+          const contentMatch = xmlText.match(/\[Nội dung\|([^\]]+)\]/);
+          if (contentMatch) data.content = contentMatch[1];
+
+          const wifeAgeMatch = xmlText.match(/\[Tuổi đằng gái\|([^\]]+)\]/);
+          if (wifeAgeMatch) data.wifeAge = wifeAgeMatch[1];
+
+          const wifeHeightMatch = xmlText.match(/\[Chiều cao đằng gái\|([^\]]+)\]/);
+          if (wifeHeightMatch) data.wifeHeight = wifeHeightMatch[1];
+
+          const wifeWeightMatch = xmlText.match(/\[Cân nặng đằng gái\|([^\]]+)\]/);
+          if (wifeWeightMatch) data.wifeWeight = wifeWeightMatch[1];
+
+          const wifeBustMatch = xmlText.match(/\[Cúp ngực đằng gái\|([^\]]+)\]/);
+          if (wifeBustMatch) data.wifeBust = wifeBustMatch[1];
+
+          const imagesMatch = xmlText.match(/<images>([\s\S]*?)<\/images>/i);
+          if (imagesMatch && imagesMatch[1]) {
+            const imageRegex = /\[Hình ảnh\|([^\|]*)\|([^\]]+)\]/g;
+            let imageMatch;
+            while ((imageMatch = imageRegex.exec(imagesMatch[1])) !== null) {
+              const imageUrl = imageMatch[1] ? IMAGE_BASE_URL + imageMatch[1] : '';
+              if (imageUrl) {
+                data.images.push({
+                  url: imageUrl,
+                  nsfw: imageMatch[2] === 'true',
+                });
+              }
+            }
+          }
+
+          console.log('Phân tích hoàn tất - Hình ảnh:', data.images.length);
+          console.log('========== Hoàn tất phân tích dữ liệu hẹn hò ==========');
+          return data;
+        } catch (error) {
+          console.error('Lỗi phân tích dữ liệu hẹn hò:', error);
+          return data;
+        }
+      }
+
+      let currentPostTitle = '';
+
+      function renderHookupPost(data) {
+        console.log('Bắt đầu hiển thị bài đăng hẹn hò...');
+
+        const container = document.getElementById('post-container');
+
+        if (!data.title) {
+          container.innerHTML = '<div class="loading">Tải giao diện thất bại, có thể do lỗi định dạng, vui lòng roll lại cuộc trò chuyện thử xem...</div>';
+          return;
+        }
+
+        currentPostTitle = data.title;
+
+        let imagesHTML = '';
+        if (data.images.length > 0) {
+          imagesHTML = '<div class="post-images">';
+          data.images.forEach(img => {
+            imagesHTML += `
+              <div class="post-image-wrapper" onclick="openLightbox('${img.url}'); event.stopPropagation();">
+                <img src="${img.url}" class="post-image ${img.nsfw ? 'nsfw-blur' : ''}" alt="">
+                ${img.nsfw ? '<span class="nsfw-badge">NSFW</span>' : ''}
+              </div>
+            `;
+          });
+          imagesHTML += '</div>';
+        }
+
+        container.innerHTML = `
+          <header class="post-header">
+            <div class="header-content">
+              <button class="back-button" onclick="goBack()">
+                ← Trở về
+              </button>
+              <div class="post-title-header">${data.title}</div>
+              <button class="theme-toggle" onclick="cycleFontSize()">
+                <span id="font-size-icon">A</span>
+              </button>
+              <button class="theme-toggle" onclick="toggleTheme()">
+                <span id="theme-icon">🌙</span>
+              </button>
+            </div>
+          </header>
+
+          <div class="post-main">
+            <div class="post-title-full">${data.title}</div>
+            <div class="post-meta-info">
+              <div class="meta-item">
+                <span>👤</span>
+                <span class="post-author-name">${data.author}</span>
+              </div>
+              <div class="meta-item">
+                <span>🕒</span>
+                <span>${data.time}</span>
+              </div>
+              <div class="meta-item">
+                <span>📁</span>
+                <span>Khu Hẹn Hò</span>
+              </div>
+            </div>
+
+            <div class="hookup-requirements">
+              <div class="requirements-title">
+                <span>📋</span>
+                <span>Nhu cầu hẹn hò</span>
+              </div>
+              <div class="requirement-item">
+                <div class="requirement-label">📍 Địa điểm:</div>
+                <div class="requirement-value highlight">${data.location}</div>
+              </div>
+              <div class="requirement-item">
+                <div class="requirement-label">⏰ Thời gian:</div>
+                <div class="requirement-value highlight">${data.appointmentTime}</div>
+              </div>
+              <div class="requirement-item">
+                <div class="requirement-label">🎭 Cách chơi:</div>
+                <div class="requirement-value">${data.playStyle}</div>
+              </div>
+              <div class="requirement-item">
+                <div class="requirement-label">✅ Yêu cầu:</div>
+                <div class="requirement-value">${data.requirements}</div>
+              </div>
+              ${
+                data.otherInfo
+                  ? `
+              <div class="requirement-item">
+                <div class="requirement-label">💡 Ghi chú:</div>
+                <div class="requirement-value">${data.otherInfo}</div>
+              </div>
+              `
+                  : ''
+              }
+            </div>
+
+            <div class="post-content-main">
+              ${data.content
+                .split(/\\n|\n/)
+                .filter(p => p.trim())
+                .map(p => `<p>${p}</p>`)
+                .join('')}
+            </div>
+
+            ${
+              data.wifeAge || data.wifeHeight || data.wifeWeight || data.wifeBust
+                ? `
+            <div class="wife-info-card">
+              <div class="wife-info-title">
+                <span>👰</span>
+                <span>Thông tin thê tử</span>
+              </div>
+              <div class="wife-stats">
+                ${
+                  data.wifeAge
+                    ? `
+                <div class="wife-stat-item">
+                  <span class="wife-stat-label">Tuổi:</span>
+                  <span class="wife-stat-value">${data.wifeAge}</span>
+                </div>
+                `
+                    : ''
+                }
+                ${
+                  data.wifeHeight
+                    ? `
+                <div class="wife-stat-item">
+                  <span class="wife-stat-label">Chiều cao:</span>
+                  <span class="wife-stat-value">${data.wifeHeight}</span>
+                </div>
+                `
+                    : ''
+                }
+                ${
+                  data.wifeWeight
+                    ? `
+                <div class="wife-stat-item">
+                  <span class="wife-stat-label">Cân nặng:</span>
+                  <span class="wife-stat-value">${data.wifeWeight}</span>
+                </div>
+                `
+                    : ''
+                }
+                ${
+                  data.wifeBust
+                    ? `
+                <div class="wife-stat-item">
+                  <span class="wife-stat-label">Cúp ngực:</span>
+                  <span class="wife-stat-value">${data.wifeBust}</span>
+                </div>
+                `
+                    : ''
+                }
+              </div>
+            </div>
+            `
+                : ''
+            }
+
+            ${imagesHTML}
+
+            <div class="post-stats-bar">
+              <div class="stat-item">
+                <span>👁️</span>
+                <span>${data.views}</span>
+              </div>
+              <div class="stat-item">
+                <span>💬</span>
+                <span>${data.replies}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="reply-section">
+            <div class="reply-section-title">
+              <span>✍️</span>
+              <span>Trả lời chủ thớt</span>
+            </div>
+            <div class="reply-input-container">
+              <textarea
+                class="reply-textarea"
+                id="reply-textarea"
+                placeholder="Nhập nội dung trả lời tại đây...&#10;&#10;Có thể giới thiệu tình hình bản thân, bày tỏ hứng thú, hỏi thăm chi tiết v.v."
+                maxlength="500"
+              ></textarea>
+              <div class="reply-actions">
+                <div class="reply-tips">💡 Nhấn Enter gửi, Shift + Enter xuống dòng | Vui lòng trả lời văn minh, tôn trọng quyền riêng tư</div>
+                <button class="reply-submit-btn" onclick="submitReply()">
+                  Gửi trả lời
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+            <div class="lightbox-loader" id="lightbox-loader">
+              <div class="lightbox-spinner"></div>
+              <div class="lightbox-loader-text">Đang tải hình ảnh...</div>
+            </div>
+            <img class="lightbox-image" id="lightbox-image" src="" alt="" />
+          </div>
+        `;
+
+        console.log('Hiển thị bài đăng hẹn hò hoàn tất');
+      }
+
+      function cycleFontSize() {
+        const container = document.getElementById('post-container');
+        const icon = document.getElementById('font-size-icon');
+        const fontSizes = ['small', 'medium', 'large', 'xlarge'];
+        const fontIcons = ['A', 'A+', 'A++', 'A+++'];
+
+        let currentSize = localStorage.getItem('forum-font-size') || 'small';
+        let currentIndex = fontSizes.indexOf(currentSize);
+        let nextIndex = (currentIndex + 1) % fontSizes.length;
+        let nextSize = fontSizes[nextIndex];
+
+        container.classList.remove('font-medium', 'font-large', 'font-xlarge');
+        if (nextSize !== 'small') {
+          container.classList.add('font-' + nextSize);
+        }
+
+        icon.textContent = fontIcons[nextIndex];
+        localStorage.setItem('forum-font-size', nextSize);
+      }
+
+      function toggleTheme() {
+        const body = document.body;
+        const icon = document.getElementById('theme-icon');
+        const isLight = body.getAttribute('data-theme') === 'light';
+
+        if (isLight) {
+          body.removeAttribute('data-theme');
+          icon.textContent = '🌙';
+          localStorage.setItem('forum-theme', 'dark');
+        } else {
+          body.setAttribute('data-theme', 'light');
+          icon.textContent = '☀️';
+          localStorage.setItem('forum-theme', 'light');
+        }
+      }
+
+      function syncThemeFromStorage(e) {
+        if (e.key === 'forum-theme') {
+          const body = document.body;
+          const icon = document.getElementById('theme-icon');
+
+          if (e.newValue === 'light') {
+            body.setAttribute('data-theme', 'light');
+            if (icon) icon.textContent = '☀️';
+          } else {
+            body.removeAttribute('data-theme');
+            if (icon) icon.textContent = '🌙';
+          }
+        }
+
+        if (e.key === 'forum-font-size') {
+          const container = document.getElementById('post-container');
+          const icon = document.getElementById('font-size-icon');
+          const fontSizes = ['small', 'medium', 'large', 'xlarge'];
+          const fontIcons = ['A', 'A+', 'A++', 'A+++'];
+
+          container.classList.remove('font-medium', 'font-large', 'font-xlarge');
+          if (e.newValue && e.newValue !== 'small') {
+            container.classList.add('font-' + e.newValue);
+          }
+
+          let index = fontSizes.indexOf(e.newValue || 'small');
+          if (icon) icon.textContent = fontIcons[index];
+        }
+      }
+
+      function openLightbox(imageUrl) {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const loader = document.getElementById('lightbox-loader');
+        const loaderText = loader.querySelector('.lightbox-loader-text');
+
+        const loadingTexts = [
+          'Đang tải hình ảnh...',
+          'Đang lấy hình ảnh độ nét cao...',
+          'Đang tải tài nguyên hình ảnh...',
+          'Đang phân tích dữ liệu hình ảnh...',
+          'Đang tải hình gốc...',
+          'Đang đọc bộ nhớ đệm hình ảnh...',
+          'Đang kết nối máy chủ hình ảnh...',
+          'Đang truyền dữ liệu hình ảnh...',
+        ];
+
+        const randomText = loadingTexts[Math.floor(Math.random() * loadingTexts.length)];
+        loaderText.textContent = randomText;
+
+        lightboxImage.onload = null;
+        lightboxImage.onerror = null;
+        lightboxImage.classList.remove('loaded');
+        lightboxImage.src = '';
+        loader.classList.remove('hidden');
+        lightbox.classList.add('active');
+
+        const loadTime = 500 + Math.random() * 500;
+
+        setTimeout(() => {
+          lightboxImage.onload = function () {
+            loader.classList.add('hidden');
+            lightboxImage.classList.add('loaded');
+          };
+
+          lightboxImage.onerror = function () {
+            loader.classList.add('hidden');
+            loaderText.textContent = 'Tải hình ảnh thất bại';
+          };
+
+          lightboxImage.src = imageUrl;
+        }, loadTime);
+      }
+
+      function closeLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const loader = document.getElementById('lightbox-loader');
+
+        lightbox.classList.remove('active');
+        lightboxImage.classList.remove('loaded');
+        lightboxImage.onload = null;
+        lightboxImage.onerror = null;
+        lightboxImage.src = '';
+        loader.classList.remove('hidden');
+      }
+
+      function goBack() {
+        const cmd = `/send Trở về diễn đàn | /trigger`;
+        if (typeof triggerSlash === 'function') {
+          triggerSlash(cmd);
+        }
+      }
+
+      function submitReply() {
+        const textarea = document.getElementById('reply-textarea');
+        const content = textarea.value.trim();
+
+        if (!content) {
+          alert('Nội dung trả lời không được để trống');
+          return;
+        }
+
+        const replyMessage = `Trả lời bài đăng《${currentPostTitle}》:${content}`;
+        const cmd = `/send ${replyMessage} | /trigger`;
+        if (typeof triggerSlash === 'function') {
+          triggerSlash(cmd);
+          textarea.value = '';
+        } else {
+          console.error('triggerSlash function not available');
+          alert('Gửi thất bại, vui lòng đảm bảo sử dụng trong môi trường chính xác');
+        }
+      }
+
+      window.addEventListener('storage', syncThemeFromStorage);
+
+      setTimeout(function () {
+        const theme = localStorage.getItem('forum-theme');
+        if (theme === 'light') {
+          document.body.setAttribute('data-theme', 'light');
+        }
+
+        const fontSize = localStorage.getItem('forum-font-size') || 'small';
+        const container = document.getElementById('post-container');
+        const fontSizes = ['small', 'medium', 'large', 'xlarge'];
+        const fontIcons = ['A', 'A+', 'A++', 'A+++'];
+
+        if (fontSize !== 'small') {
+          container.classList.add('font-' + fontSize);
+        }
+
+        console.log('Tải trang hoàn tất, bắt đầu phân tích dữ liệu hẹn hò');
+        try {
+          const data = parseHookupDataXML(hookupDataXML);
+          renderHookupPost(data);
+
+          if (theme === 'light') {
+            const icon = document.getElementById('theme-icon');
+            if (icon) {
+              icon.textContent = '☀️';
+            }
+          }
+
+          let index = fontSizes.indexOf(fontSize);
+          const fontIcon = document.getElementById('font-size-icon');
+          if (fontIcon) {
+            fontIcon.textContent = fontIcons[index];
+          }
+
+          const textarea = document.getElementById('reply-textarea');
+          if (textarea) {
+            textarea.addEventListener('keydown', function (e) {
+              if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                submitReply();
+              }
+            });
+          }
+        } catch (error) {
+          console.error('Hiển thị thất bại:', error);
+          document.getElementById('post-container').innerHTML = '<div class="loading">Tải dữ liệu thất bại, vui lòng làm mới thử lại</div>';
+        }
+      }, 0);
+    </script>
+  </body>
+</html>
