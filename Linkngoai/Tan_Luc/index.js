@@ -543,36 +543,36 @@ function V(e,t){
 const N='Tần Lộ Bản làm lại_Gương tiến giai';
 const B={
   'Người tình':{
-    'Biểu tượng':'💗',
-    'Loại bồi dưỡng':['Đồng hành trò chuyện','Ỷ lại tình cảm','Đụng chạm thân thể','Tiếp xúc thân mật'],
-    'Thưởng bồi dưỡng':2,
-    'Nghi ngờ mỗi tầng':1,
-    'Tóm tắt hiệu quả':'Bồi dưỡng luyến ái +2/tầng · Nghi ngờ +1/tầng',
-    'Thể hiện':'Hôm nay từ đầu đến chân nàng đều ăn vận vì {{user}} - người phụ nữ đang yêu không thể giấu nổi lòng mình, từng chi tiết nhỏ đều chờ đợi anh nhận ra'
+    图标:'💗',
+    培育类型:['Đồng hành trò chuyện','Ỷ lại tình cảm','Đụng chạm thân thể','Tiếp xúc thân mật'],
+    培育加成:2,
+    疑心每楼:1,
+    效果简述:'Bồi dưỡng luyến ái +2/tầng · Nghi ngờ +1/tầng',
+    呈现:'Hôm nay từ đầu đến chân nàng đều ăn vận vì {{user}} - người phụ nữ đang yêu không thể giấu nổi lòng mình, từng chi tiết nhỏ đều chờ đợi anh nhận ra'
   },
   'Vợ yêu':{
-    'Biểu tượng':'💍',
-    'Loại bồi dưỡng':['Nhận thức thân phận','Thay thế gia đình'],
-    'Thưởng bồi dưỡng':2,
-    'Nghi ngờ mỗi tầng':0,
-    'Tóm tắt hiệu quả':'Bồi dưỡng vị trí người vợ +2/tầng · Nghi ngờ +0/tầng',
-    'Thể hiện':'Hôm nay từ trong ra ngoài nàng đều mang trang phục của "nữ chủ nhân ngôi nhà này" - trong mắt người ngoài là sự đoan trang hiền thục không tì vết, chỉ riêng nàng biết vẻ đoan trang này là vì ai mà khoác lên'
+    图标:'💍',
+    培育类型:['Nhận thức thân phận','Thay thế gia đình'],
+    培育加成:2,
+    疑心每楼:0,
+    效果简述:'Bồi dưỡng vị trí người vợ +2/tầng · Nghi ngờ +0/tầng',
+    呈现:'Hôm nay từ trong ra ngoài nàng đều mang trang phục của "nữ chủ nhân ngôi nhà này" - trong mắt người ngoài là sự đoan trang hiền thục không tì vết, chỉ riêng nàng biết vẻ đoan trang này là vì ai mà khoác lên'
   },
   'Dâm đãng':{
-    'Biểu tượng':'🔥',
-    'Loại bồi dưỡng':['Tương tác mờ ám','Cởi mở cơ thể'],
-    'Thưởng bồi dưỡng':2,
-    'Nghi ngờ mỗi tầng':2,
-    'Tóm tắt hiệu quả':'Bồi dưỡng cởi mở +2/tầng · Nghi ngờ +2/tầng',
-    'Thể hiện':'Hôm nay từ trong ra ngoài nàng đều lộ rõ vẻ hở hang và khiêu khích không thể che giấu - từng tấc da thịt trên cơ thể đều tiết lộ nàng đang biến thành người phụ nữ như thế nào'
+    图标:'🔥',
+    培育类型:['Tương tác mờ ám','Cởi mở cơ thể'],
+    培育加成:2,
+    疑心每楼:2,
+    效果简述:'Bồi dưỡng cởi mở +2/tầng · Nghi ngờ +2/tầng',
+    呈现:'Hôm nay từ trong ra ngoài nàng đều lộ rõ vẻ hở hang và khiêu khích không thể che giấu - từng tấc da thịt trên cơ thể đều tiết lộ nàng đang biến thành người phụ nữ như thế nào'
   },
   'Nô lệ tình dục':{
-    'Biểu tượng':'⛓️',
-    'Loại bồi dưỡng':['Quan hệ tình dục','Phục tùng tuyệt đối'],
-    'Thưởng bồi dưỡng':2,
-    'Nghi ngờ mỗi tầng':2,
-    'Tóm tắt hiệu quả':'Bồi dưỡng phục tùng +2/tầng · Nghi ngờ +2/tầng',
-    'Thể hiện':'Hôm nay từ trong ra ngoài mỗi món nàng khoác lên đều mang ý nghĩa "bị sở hữu" - nàng hiểu rõ công dụng của từng món, việc mặc chỉnh tề bản thân nó đã là sự phục tùng thầm lặng'
+    图标:'⛓️',
+    培育类型:['Quan hệ tình dục','Phục tùng tuyệt đối'],
+    培育加成:2,
+    疑心每楼:2,
+    效果简述:'Bồi dưỡng phục tùng +2/tầng · Nghi ngờ +2/tầng',
+    呈现:'Hôm nay từ trong ra ngoài mỗi món nàng khoác lên đều mang ý nghĩa "bị sở hữu" - nàng hiểu rõ công dụng của từng món, việc mặc chỉnh tề bản thân nó đã là sự phục tùng thầm lặng'
   }
 };
 
@@ -741,7 +741,7 @@ function ze(e,t,n,o){
     let i=0;
     'Chờ phán định'!==f['Loại']&&(i=T(e,t,f['Loại']),s+=i);
     const a=V(e,t);
-    a.full&&(a.route?'Chờ phán định'!==f['Loại']&&B[a.route]['Loại bồi dưỡng'].includes(f['Loại'])&&(s+=B[a.route]['Thưởng bồi dưỡng']):s+=1),f['Tiến độ khai phát']+=s,console.info(`[Bồi dưỡng ý niệm] ${t} ${u} +${s} (Tăng tốc: ${c?'Có':'Không'}, Liên quan: ${l??0}, Trang bị: ${i}) -> ${f['Tiến độ khai phát']}/${f['Số tầng cần']}`);
+    a.full&&(a.route?'Chờ phán định'!==f['Loại']&&B[a.route][培育类型].includes(f['Loại'])&&(s+=B[a.route][培育加成]):s+=1),f['Tiến độ khai phát']+=s,console.info(`[Bồi dưỡng ý niệm] ${t} ${u} +${s} (Tăng tốc: ${c?'Có':'Không'}, Liên quan: ${l??0}, Trang bị: ${i}) -> ${f['Tiến độ khai phát']}/${f['Số tầng cần']}`);
     const d=le[f['Độ khó']]??3;
     f['Tiến độ khai phát']>=f['Số tầng cần']&&n-f['Tầng cấy ghép']>=d&&he(e,t,u,n)
   }
@@ -981,7 +981,7 @@ function Ce(e,t,n){
     const c=C(e,n),u=V(e,n);
     if(u.full&&u.route){
       const o=x(e,n);
-      r.push(`[${t} · Tuyến cộng hưởng] ${B[u.route]['Thể hiện']} (Cả bộ hôm nay của nàng: ${w(e,n).join(', ')}${o.length>0?`, trên người còn có ${o.join(', ')}`:''}) - Trong diễn dịch thể hiện ý thức tổng thể từ trong ra ngoài này. Thông tin này chỉ thuộc về nhận thức riêng tư của nàng, Tô Văn và các nhân vật khác không hề hay biết (trừ khi trong chính văn đã bị phát hiện).`)
+      r.push(`[${t} · Tuyến cộng hưởng] ${B[u.route][呈现]} (Cả bộ hôm nay của nàng: ${w(e,n).join(', ')}${o.length>0?`, trên người còn có ${o.join(', ')}`:''}) - Trong diễn dịch thể hiện ý thức tổng thể từ trong ra ngoài này. Thông tin này chỉ thuộc về nhận thức riêng tư của nàng, Tô Văn và các nhân vật khác không hề hay biết (trừ khi trong chính văn đã bị phát hiện).`)
     }
     if(c.length>0){
       let o='';
@@ -1237,7 +1237,7 @@ $(()=>{
             }else l['Độ sa đọa']<l['_Độ sa đọa kết toán nghi ngờ']&&(l['_Độ sa đọa kết toán nghi ngờ']=l['Độ sa đọa']);
 
             const a=V(e,s),d=a.full&&o.includes(r);
-            d&&(i+=a.route?B[a.route]['Nghi ngờ mỗi tầng']:1);
+            d&&(i+=a.route?B[a.route][疑心每楼]:1);
 
             const h=e['Trạng thái Tô Văn'][c],m=G(e,s);
             let b;
